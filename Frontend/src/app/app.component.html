@@ -1,0 +1,27 @@
+<nz-layout>
+  <nz-sider nzCollapsible nzWidth="200px" nzTheme="light" [(nzCollapsed)]="isCollapsed">
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-menu-item class="no-hover" routerLink="/">
+        <img *ngIf="!isCollapsed" src="assets/roomy.svg" alt="Logo" class="logo"/>
+        <span *ngIf="isCollapsed" nz-icon nzType="home" nzTheme="outline" class="icon-collapsed"></span>
+      </li>
+
+      <li class="menu-divider"></li>
+
+      <li nz-menu-item routerLink="/register">
+        <span nz-icon nzType="user"></span>
+        <span><strong>Register</strong></span>
+      </li>
+      <li nz-menu-item routerLink="/">
+        <span nz-icon nzType="login"></span>
+        <span><strong>Login</strong></span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>Roomy ©2025 created by Mohamed LACHHAB</nz-footer>
+  </nz-layout>
+</nz-layout>

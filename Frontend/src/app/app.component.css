@@ -1,0 +1,52 @@
+/*.logo {*/
+/*  height: 32px;*/
+/*  margin: 16px;*/
+/*  background: rgba(255,255,255,0.3);*/
+/*}*/
+.logo {
+  width: 130px;
+  height: 200px;
+  align-items: center;
+  padding-top: 10px;
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+
+nz-content {
+  margin: 0 16px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+.menu-divider {
+  height: 30px; /* Espace vide */
+  list-style: none; /* Enlève les styles de liste */
+  margin: 0; /* Enlève les marges par défaut */
+  padding: 0;
+}
+
+.no-hover {
+  pointer-events: none; /* Désactive les interactions pour l'élément */
+}
+
+/* Si vous souhaitez conserver les interactions sans hover uniquement */
+.no-hover:hover {
+  background-color: transparent !important; /* Empêche la surbrillance */
+  cursor: default; /* Change le curseur pour indiquer aucune action */
+}
+
