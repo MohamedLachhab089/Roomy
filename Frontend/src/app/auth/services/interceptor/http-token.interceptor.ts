@@ -4,13 +4,13 @@ import {TokenService} from "../token/token.service";
 
 export const httpTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenService = inject(TokenService);
-  const token = tokenService.token; // Récupérez le token
+  const token = tokenService.token;
 
   if (token) {
     const authReq = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${token}`), // Ajoutez l'en-tête Authorization
+      headers: req.headers.set('Authorization', `Bearer ${token}`),
     });
-    return next(authReq); // Continuez avec la requête modifiée
+    return next(authReq);
   }
   return next(req);
 };

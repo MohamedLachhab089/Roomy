@@ -1,5 +1,7 @@
 <nz-layout>
-  <nz-sider nzCollapsible nzWidth="200px" nzTheme="light" [(nzCollapsed)]="isCollapsed">
+  <nz-sider
+    nzCollapsible nzWidth="200px"
+    nzTheme="light" [(nzCollapsed)]="isCollapsed">
     <ul nz-menu nzTheme="light" nzMode="inline">
       <li nz-menu-item class="no-hover" routerLink="/">
         <img *ngIf="!isCollapsed" src="assets/roomy.svg" alt="Logo" class="logo"/>
@@ -15,6 +17,56 @@
       <li nz-menu-item routerLink="/">
         <span nz-icon nzType="login"></span>
         <span><strong>Login</strong></span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-sider
+    nzCollapsible nzWidth="200px"
+    nzTheme="light" [(nzCollapsed)]="isCollapsed">
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-menu-item class="no-hover" routerLink="/">
+        <img *ngIf="!isCollapsed" src="assets/roomy.svg" alt="Logo" class="logo"/>
+        <span *ngIf="isCollapsed" nz-icon nzType="home" nzTheme="outline" class="icon-collapsed"></span>
+      </li>
+
+      <li class="menu-divider"></li>
+
+      <li nz-menu-item routerLink="/admin/rooms">
+        <span nz-icon nzType="apartment"></span>
+        <span><strong>Rooms</strong></span>
+      </li>
+      <li nz-menu-item routerLink="/admin/reservations">
+        <span nz-icon nzType="pull-request"></span>
+        <span><strong>Reservations</strong></span>
+      </li>
+      <li nz-menu-item (click)="logout()">
+        <span nz-icon nzType="logout"></span>
+        <span><strong>Logout</strong></span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-sider
+    nzCollapsible nzWidth="200px"
+    nzTheme="light" [(nzCollapsed)]="isCollapsed">
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-menu-item class="no-hover" routerLink="/">
+        <img *ngIf="!isCollapsed" src="assets/roomy.svg" alt="Logo" class="logo"/>
+        <span *ngIf="isCollapsed" nz-icon nzType="home" nzTheme="outline" class="icon-collapsed"></span>
+      </li>
+
+      <li class="menu-divider"></li>
+
+      <li nz-menu-item routerLink="/customer/rooms">
+        <span nz-icon nzType="apartment"></span>
+        <span><strong>Rooms</strong></span>
+      </li>
+      <li nz-menu-item routerLink="/customer/bookings">
+        <span nz-icon nzType="pull-request"></span>
+        <span><strong>Reservations</strong></span>
+      </li>
+      <li nz-menu-item (click)="logout()">
+        <span nz-icon nzType="logout"></span>
+        <span><strong>Logout</strong></span>
       </li>
     </ul>
   </nz-sider>

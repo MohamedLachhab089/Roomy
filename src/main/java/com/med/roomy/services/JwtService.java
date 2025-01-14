@@ -40,6 +40,12 @@ public class JwtService {
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
+    public String generateTokenWithRole(UserDetails userDetails, String role) {
+        Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("role", role);
+        return buildToken(extraClaims, userDetails, jwtExpiration);
+    }
+
     public long getExpirationTime() {
         return jwtExpiration;
     }
@@ -81,5 +87,9 @@ public class JwtService {
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    public String extractRole(String token) {
+        return extractClaim(token, claims -> claims.get("role", String.class));
     }
 }

@@ -13,6 +13,7 @@ import {TokenService} from "../../services/token/token.service";
 export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
+  isLoggedIn: boolean = false;
 
   constructor(private fb: FormBuilder,
               private loginService: AuthService,

@@ -35,4 +35,30 @@ export class TokenService {
     return true;
   }
 
+  private decodeToken(): any {
+    const token = this.token;
+    if (!token) {
+      return null;
+    }
+    const jwtHelper = new JwtHelperService();
+    try {
+      return jwtHelper.decodeToken(token);
+    } catch (error) {
+      console.error('Error through decoding the token:', error);
+      return null;
+    }
+  }
+
+  getRole(): string | null {
+    const decodedToken = this.decodeToken();
+    return decodedToken ? decodedToken.role : null;
+  }
+
+  isAdmin(): boolean {
+    return this.getRole() === 'ADMIN';
+  }
+
+  isCustomer(): boolean {
+    return this.getRole() === 'CUSTOMER';
+  }
 }

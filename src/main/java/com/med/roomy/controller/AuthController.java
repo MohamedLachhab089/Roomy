@@ -6,6 +6,7 @@ import com.med.roomy.dtos.LoginRequest;
 import com.med.roomy.dtos.LoginResponse;
 import com.med.roomy.dtos.SignupRequest;
 import com.med.roomy.dtos.UserDto;
+import com.med.roomy.enums.UserRole;
 import com.med.roomy.services.JwtService;
 import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
         CustomUserDetails authenticated = authService.authenticate(loginRequest);
-        String token = jwtService.generateToken(authenticated);
+        String token = jwtService.generateTokenWithRole(authenticated, authenticated.getUser().getUserRole().toString());
         LoginResponse loginResponse = LoginResponse.builder().token(token).expiresIn(jwtService.getExpirationTime()).build();
         return new ResponseEntity<>(loginResponse, HttpStatus.OK);
     }
